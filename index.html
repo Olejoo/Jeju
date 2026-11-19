@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CalcLab – Carl Angelo B. Suarez</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<aside>
+  <div class="logo" id="logo"><b>CALC//LAB</b><span>STUDENT ASSIGNMENTS</span></div>
+  <nav>
+    <button class="nav-btn" data-k="unit" data-view="unit"><i>01</i><span>Converter<small>°C °F · m ft</small></span></button>
+    <button class="nav-btn" data-k="tax" data-view="tax"><i>02</i><span>Tax Calculator<small>Income tax brackets</small></span></button>
+    <button class="nav-btn" data-k="arith" data-view="arith"><i>03</i><span>Loop Lab<small>Factorial · Sum · Average</small></span></button>
+    <button class="nav-btn" data-k="payroll" data-view="payroll"><i>04</i><span>Payroll<small>Gross &amp; net pay</small></span></button>
+  </nav>
+  <div class="side-foot">
+    <div class="author">made by<br><b>Carl Angelo B. Suarez</b></div>
+    <button class="theme" id="theme">◐ Switch theme</button>
+  </div>
+</aside>
+
+<main>
+
+  <!-- ===== HOME ===== -->
+  <section class="view" id="view-home">
+    <div class="box hero">
+      <h1>CALC<br>LAB.</h1>
+      <p>4 student assignments. 4 calculators.</p>
+      <p><span class="name">by Carl Angelo B. Suarez</span></p>
+    </div>
+    <div class="tiles">
+      <button class="tile c1" data-view="unit"><div class="n">ASSIGNMENT #1</div><h2>Unit Converter</h2><p>Celsius, Fahrenheit, Meters and Feet — both ways.</p><span class="go">↗</span></button>
+      <button class="tile c2" data-view="tax"><div class="n">ASSIGNMENT #2</div><h2>Income Tax</h2><p>Type your taxable income, get the tax due.</p><span class="go">↗</span></button>
+      <button class="tile c3" data-view="arith"><div class="n">ASSIGNMENT #3</div><h2>Loop Lab</h2><p>While, do-while and for loops on the first N numbers.</p><span class="go">↗</span></button>
+      <button class="tile c4" data-view="payroll"><div class="n">ASSIGNMENT #4</div><h2>Simple Payroll</h2><p>Add employees, see gross pay, deductions and net pay.</p><span class="go">↗</span></button>
+    </div>
+  </section>
+
+  <!-- ===== 1: UNIT ===== -->
+  <section class="view" id="view-unit">
+    <span class="tag bg-b">ASSIGNMENT #1</span>
+    <h1 class="title">Unit Converter</h1>
+    <p class="sub">Pick a conversion, type a number, and the answer updates instantly.</p>
+    <div class="cols">
+      <div class="box">
+        <h3>1 · Choose conversion</h3>
+        <div class="pick" id="u-pick">
+          <button data-m="cf" class="on">Celsius → Fahrenheit<span>°C → °F</span></button>
+          <button data-m="fc">Fahrenheit → Celsius<span>°F → °C</span></button>
+          <button data-m="mf">Meters → Feet<span>m → ft</span></button>
+          <button data-m="fm">Feet → Meters<span>ft → m</span></button>
+        </div>
+        <h3>2 · Your value</h3>
+        <input type="number" step="any" id="u-in" value="25">
+        <div class="err" id="u-err"></div>
+        <button class="go-btn alt" id="u-swap">⇄ Reverse direction</button>
+      </div>
+      <div class="res bg-b">
+        <div class="k" id="u-label">Celsius → Fahrenheit</div>
+        <div class="v mono" id="u-out">77 °F</div>
+        <div class="f" id="u-f">(25 × 9/5) + 32 = 77</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2: TAX ===== -->
+  <section class="view" id="view-tax">
+    <span class="tag bg-g">ASSIGNMENT #2</span>
+    <h1 class="title">Income Tax</h1>
+    <p class="sub">Enter your yearly taxable income. The bracket you fall into lights up in the table.</p>
+    <div class="cols">
+      <div>
+        <div class="box">
+          <h3>Yearly taxable income (₱)</h3>
+          <input type="number" min="0" step="any" id="t-in" placeholder="e.g. 500000">
+          <div class="err" id="t-err"></div>
+          <button class="go-btn" id="t-go">Compute tax →</button>
+        </div>
+        <div class="res bg-g" style="margin-top:26px">
+          <div class="k">Income tax due</div>
+          <div class="v m mono" id="t-out">₱ —</div>
+          <div class="f" id="t-f">Waiting for your income…</div>
+        </div>
+      </div>
+      <div class="box">
+        <h3>Tax table</h3>
+        <table class="tbl">
+          <thead><tr><th>Over</th><th>Not over</th><th>Tax</th></tr></thead>
+          <tbody id="t-body">
+            <tr><td>—</td><td>₱250,000</td><td>0%</td></tr>
+            <tr><td>₱250,000</td><td>₱400,000</td><td>20% of excess over ₱250,000</td></tr>
+            <tr><td>₱400,000</td><td>₱800,000</td><td>₱30,000 + 25% of excess over ₱400,000</td></tr>
+            <tr><td>₱800,000</td><td>₱2,000,000</td><td>₱130,000 + 30% of excess over ₱800,000</td></tr>
+            <tr><td>₱2,000,000</td><td>₱8,000,000</td><td>₱490,000 + 32% of excess over ₱2,000,000</td></tr>
+            <tr><td>₱8,000,000</td><td>—</td><td>₱2,410,000 + 35% of excess over ₱8,000,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3: ARITH ===== -->
+  <section class="view" id="view-arith">
+    <span class="tag bg-p">ASSIGNMENT #3</span>
+    <h1 class="title">Loop Lab</h1>
+    <p class="sub">Type N and run all three loops on the first N natural numbers (1, 2, 3 … N).</p>
+    <div class="cols">
+      <div class="box">
+        <h3>Value of N</h3>
+        <input type="number" min="1" step="1" id="a-in" placeholder="e.g. 5">
+        <p class="hint">Positive whole numbers only (max 500).</p>
+        <div class="err" id="a-err"></div>
+        <button class="go-btn" id="a-go">Run the loops →</button>
+      </div>
+      <div class="rtile">
+        <div class="res bg-p"><div class="k">Factorial · while loop</div><div class="v mono" id="a-f">—</div></div>
+        <div class="res bg-y"><div class="k">Sum · do-while loop</div><div class="v mono" id="a-s">—</div></div>
+        <div class="res bg-b"><div class="k">Average · for loop</div><div class="v mono" id="a-a">—</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4: PAYROLL ===== -->
+  <section class="view" id="view-payroll">
+    <span class="tag bg-o">ASSIGNMENT #4</span>
+    <h1 class="title">Simple Payroll</h1>
+    <p class="sub">Gross pay = days worked × daily rate. Net pay = gross pay − deduction.</p>
+    <div class="box">
+      <h3>Add an employee</h3>
+      <div class="fgrid">
+        <div><label class="l">Name</label><input type="text" id="p-name" placeholder="Employee name"></div>
+        <div><label class="l">Days</label><input type="number" min="0" step="any" id="p-days" placeholder="22"></div>
+        <div><label class="l">Daily rate ₱</label><input type="number" min="0" step="any" id="p-rate" placeholder="0"></div>
+        <div><label class="l">Deduction ₱</label><input type="number" min="0" step="any" id="p-ded" placeholder="0"></div>
+        <button class="go-btn" id="p-add">Add +</button>
+      </div>
+      <div class="err" id="p-err"></div>
+    </div>
+    <div class="stats">
+      <div class="stat bg-y"><span>Employees</span><b id="s-n">0</b></div>
+      <div class="stat bg-g"><span>Total gross</span><b id="s-g">₱0.00</b></div>
+      <div class="stat bg-b"><span>Total net</span><b id="s-t">₱0.00</b></div>
+    </div>
+    <div class="box">
+      <h3>Payroll list</h3>
+      <div class="tscroll">
+        <table class="pt">
+          <thead><tr><th>#</th><th>Name</th><th class="r">Days</th><th class="r">Rate</th><th class="r">Gross</th><th class="r">Deduction</th><th class="r">Net</th><th></th></tr></thead>
+          <tbody id="p-body"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="p-empty">No records yet. Add an employee above.</div>
+      <div class="delrow">
+        <div><label class="l" style="margin-top:0">Delete by line #</label><input type="number" min="1" step="1" id="p-line" placeholder="1"></div>
+        <button class="go-btn alt" id="p-del">Delete record</button>
+      </div>
+      <div class="err" id="p-derr"></div>
+    </div>
+  </section>
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>
